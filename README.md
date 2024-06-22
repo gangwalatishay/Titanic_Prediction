@@ -7,6 +7,7 @@ This repository contains a machine learning model built with Logistic Regression
 **app.py**: Flask application for serving the prediction model.
 **templates/:
 index.html**: HTML template for the web interface to collect user inputs.
+
 README.md: Detailed documentation about the project.
 
 
@@ -38,6 +39,55 @@ This will start the Flask server locally.
 
 **Open your browser and go to http://127.0.0.1:5000 to access the web interface**.
 Enter passenger details (Pclass, Sex, Age, SibSp, Parch, Fare, Embarked) and click Predict to see the survival prediction.
+
+**Features**
+**Machine Learning Model**
+**Logistic Regression Model**: Trained using the Titanic dataset (train.csv) to predict survival probabilities based on passenger attributes such as:
+**Pclass**: Ticket class (1st, 2nd, 3rd).
+**Sex:** Gender of the passenger (male or female).
+**Age**: Age of the passenger.
+**SibSp**: Number of siblings/spouses aboard.
+**Parch**: Number of parents/children aboard.
+**Fare**: Passenger fare.
+**Embarked**: Port of embarkation (C = Cherbourg, Q = Queenstown, S = Southampton).
+
+**Web Application**
+**Flask Backend**: Implements the prediction model using Flask, a Python web framework.
+**HTML Form**: Provides a user-friendly interface for entering passenger details.
+**Real-time Prediction**: Users can input the aforementioned attributes and receive a prediction on whether a passenger would survive the Titanic disaster.
+
+**Deployment**
+**Ngrok Integration**: Sets up a secure tunnel to expose the local Flask server to the internet, allowing remote access to the prediction service.
+**Public URL**: Generates a public URL using Ngrok, making the application accessible from anywhere.
+
+**Data Handling and Preprocessing**
+**Data Loading**: Loads the Titanic dataset (train.csv) using pandas for training the model.
+**Data Preprocessing**:
+Handles missing values in the dataset (e.g., filling missing ages with the mean age).
+Encodes categorical variables (e.g., converting 'Sex' and 'Embarked' to numeric values).
+Splits the dataset into training and testing sets using train_test_split from scikit-learn.
+
+**Model Evaluation**
+**Accuracy Metrics**: Calculates and displays accuracy scores for both training and testing datasets to evaluate model performance.
+
+**File Structure**
+**train.csv**: Raw dataset used for training the machine learning model.
+**logistic_regression_model.pkl**: Serialized Logistic Regression model saved using joblib for deployment.
+**app.py**: Flask application handling HTTP requests and serving predictions.
+**templates/:
+index.html**: HTML template for the web interface to collect user inputs.
+**Usage**
+
+**Local Deployment:**
+Clone the repository, install dependencies, and run app.py to start the Flask server locally.
+Access the web interface at http://127.0.0.1:5000 to input passenger details and get survival predictions.
+Remote Access:
+
+Utilize Ngrok to create a secure tunnel to expose the local Flask server.
+Share the generated public URL to allow others to access and use the prediction service remotely.
+
+**Contributions are welcome! If you wish to improve the project, add features, or fix issues, please fork the repository, create a new branch, and submit a pull request.**
+
 
 **Web Interface**
 The web interface provides a form where users can input passenger details. Upon submission, the Flask backend uses the trained Logistic Regression model to predict whether the passenger survived the Titanic disaster.
